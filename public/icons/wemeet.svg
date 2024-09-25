@@ -1,0 +1,6 @@
+<svg height="512px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"><defs><style type="text/css">
+   <![CDATA[
+    .fil1 {fill:white;fill-rule:nonzero}
+    .fil0 {fill:url(#id0)}
+   ]]>
+  </style><linearGradient gradientUnits="userSpaceOnUse" id="id0" x1="67.83" x2="474.19" y1="82.42" y2="389.98"><stop offset="0" style="stop-opacity:1; stop-color:#4A8CFF"/><stop offset="1" style="stop-opacity:1; stop-color:#23B7EC"/></linearGradient></defs><g id="Layer_x0020_1"><g id="_1639424393248"><path class="fil0" d="M256 0c141.39,0 256,114.61 256,256 0,141.39 -114.61,256 -256,256 -141.39,0 -256,-114.61 -256,-256 0,-141.39 114.61,-256 256,-256z"/><path class="fil1" d="M117.44 188.39l0 101.48c0.1,22.95 18.84,41.41 41.69,41.32l147.93 0c4.21,0 7.59,-3.38 7.59,-7.49l0 -101.49c-0.09,-22.94 -18.83,-41.41 -41.69,-41.32l-147.93 0c-4.2,0 -7.59,3.38 -7.59,7.5zm206.63 39.58l61.07 -44.61c5.3,-4.39 9.42,-3.29 9.42,4.66l0 136.04c0,9.05 -5.03,7.96 -9.42,4.67l-61.07 -44.53 0 -56.23z"/></g></g></svg>
