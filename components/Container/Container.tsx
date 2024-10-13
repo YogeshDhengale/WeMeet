@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from "react";
 
-type Props = { children: ReactNode, title?: string }
+type Props = { children: ReactNode; title?: string };
 
 function Container({ children, title }: Props) {
   return (
@@ -8,7 +8,7 @@ function Container({ children, title }: Props) {
       {title && <h1 className="text-3xl font-bold">{title}</h1>}
       {children}
     </section>
-  )
+  );
 }
 
-export default Container
+export default Container;

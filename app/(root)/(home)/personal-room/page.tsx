@@ -6,10 +6,11 @@ import { useToast } from "@/hooks/use-toast";
 import { useGetCallById } from "@/hooks/useGetCallById";
 import { useUser } from "@clerk/nextjs";
 import { useStreamVideoClient } from "@stream-io/video-react-sdk";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Table = ({ title, desc }: { title: string; desc: string }) => (
-  <div className="flex flex-col items-start gap-2 xl:flex-row">
+  <div className="flex flex-col items-start gap-2 xl:flex-row mt-5">
     <h3 className="text-base font-medium text-sky-1 lg:text-xl xl:min-w-32">
       {title}
     </h3>
@@ -25,24 +26,27 @@ function PersonalRoom() {
   const meetingId = user?.id;
   const { call } = useGetCallById(meetingId!);
   const client = useStreamVideoClient();
-  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${user?.id}?personal=true`;
+  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`;
+  const router = useRouter()
 
   const startRoom = async () => {
     if (!client || !user) return;
 
     if (!call) {
       const newCall = client.call("default", meetingId!);
+
       await newCall?.getOrCreate({
         data: {
           starts_at: new Date().toISOString(),
         },
       });
+      router.push(`/meeting/${meetingId}?personal=true`)
     }
   };
 
   return (
     <Container title={"Personal Room  "}>
-      <div className="fle w-full flex-col gap-8 xl:max-w-[900px]">
+      <div className="fle w-full flex-col gap-8 xl:max-w-[900px] mt-[-1.25rem]">
         <Table title="Topic" desc={`${user?.username}' meeting Room`} />
         <Table title="Meeting ID" desc={`${user?.id}`} />
         <Table title="Invite Link" desc={`${meetingLink}`} />

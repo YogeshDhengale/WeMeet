@@ -98,7 +98,7 @@ function CallList({ type }: { type: "ended" | "upcoming" | "recordings" }) {
                   20
                 ) ||
                 (meeting as CallRecording)?.filename?.substring(0, 20) ||
-                "No description"
+                "Personal Meeting"
               }
               date={
                 (meeting as Call).state?.startsAt?.toLocaleString() ||

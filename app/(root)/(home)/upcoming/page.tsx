@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 function Upcoming() {
-  return (
+  return (    
     <Container title="Upcoming Meetings">
       <CallList type="upcoming" />
     </Container>
