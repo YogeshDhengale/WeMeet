@@ -8,7 +8,8 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { Textarea } from "@/components/ui/textarea";
-import ReactDatePicker from "react-datepicker"
+import ReactDatePicker from "react-datepicker";
+import { Input } from "@/components/ui/input";
 
 interface ValState {
   dateTime: Date;
@@ -82,6 +83,8 @@ function ActionCards() {
     }
   };
 
+  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`;
+
   const cards = [
     {
       className: "bg-orange-1",
@@ -109,7 +112,7 @@ function ActionCards() {
       img: "/icons/recordings.svg",
       title: "View Recordings",
       description: "Check out your recordings",
-      handleClick: () => {},
+      handleClick: () => router.push('/recordings'),
     },
   ];
 
@@ -146,7 +149,8 @@ function ActionCards() {
             <label className="text-base text-normal leading-[22px] text-sky-2">
               Select Date and Time
             </label>
-            <ReactDatePicker selected={val.dateTime} 
+            <ReactDatePicker
+              selected={val.dateTime}
               name="dateTime"
               onChange={(date) => handleChangeVal("dateTime", date!)}
               showTimeSelect
@@ -160,15 +164,15 @@ function ActionCards() {
       ) : (
         <MeetingModal
           isOpen={meetingState === "isSchedule"}
-          onClose={() =>  (undefined)}
+          onClose={() => setMeetingState(undefined)}
           title="Meeting Created"
           className="text-center"
           btnText="Copy Meeting Link"
           img="/icons/checked.svg"
           buttonIcon="/icons/copy.svg"
           handleClick={() => {
-            //  navigator.clipboard.writeText(meetinglink);
-            //  toast({title: "Link copied"})
+            navigator.clipboard.writeText(meetingLink);
+            toast({ title: "Link copied" });
           }}
         />
       )}
@@ -183,6 +187,21 @@ function ActionCards() {
         btnText="Start Meeting"
         handleClick={handleCreateMeeting}
       />
+
+<MeetingModal
+        isOpen={meetingState === 'isJoin'}
+        onClose={() => setMeetingState(undefined)}
+        title="Type the link here"
+        className="text-center"
+        btnText="Join Meeting"
+        handleClick={() => router.push(val.link)}
+      >
+        <Input
+          placeholder="Meeting link"
+          onChange={(e) => setVal({ ...val, link: e.target.value })}
+          className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0 text-zinc-950"
+        />
+      </MeetingModal>
     </section>
   );
 }

@@ -1,3 +1,4 @@
+import PButton from "@/components/Button";
 import Container from "@/components/Container/Container";
 import ActionCards from "@/components/HomePageComponents/ActionCards/ActionCards";
 import Hero from "@/components/HomePageComponents/Hero/Hero";
@@ -8,6 +9,7 @@ function Home() {
     <Container>
       <Hero />
       <ActionCards />
+      <PButton />
     </Container>
   );
 }

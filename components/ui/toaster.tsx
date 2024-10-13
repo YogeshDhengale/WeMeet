@@ -17,7 +17,6 @@ export function Toaster() {
   return (
     <ToastProvider>
       {toasts.map(function ({ id, title, description, action, variant, ...props }) {
-        console.log(variant);
         return (
           <Toast className={cn("border-none text-white", variant !== "destructive" ? "bg-dark-1" : "")} variant={variant} key={id} {...props}>
             <div className="grid gap-1">
