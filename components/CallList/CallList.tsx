@@ -81,7 +81,6 @@ function CallList({ type }: { type: "ended" | "upcoming" | "recordings" }) {
     <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
       {calls && calls.length > 0 ? (
         calls.map((meeting: Call | CallRecording) => {
-          console.log((meeting as Call) || (meeting as CallRecording));
           return (
             <MeetingCard
               key={(meeting as Call).id}
