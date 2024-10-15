@@ -8,12 +8,20 @@ import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 import { Loader } from "lucide-react";
 import React, { useState } from "react";
 
-function Meeting({ params: { id } }: { params: { id: string } }) {
+interface MeetingProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function Meeting({ params }: MeetingProps) {
   const { isLoaded } = useUser();
   const [isSetup, setIsSetup] = useState(false);
 
-  const { call, isCallLoading } = useGetCallById(id);
+  // Use your hook to get the call by ID
+  const { call, isCallLoading } = useGetCallById(params.id);
 
+  // Handle loading states
   if (!isLoaded || isCallLoading) return <Loader />;
 
   return (
@@ -30,5 +38,3 @@ function Meeting({ params: { id } }: { params: { id: string } }) {
     </main>
   );
 }
-
-export default Meeting;
