@@ -9,7 +9,7 @@ import { Loader } from "lucide-react";
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
 
-export default function Meeting() {
+function Meeting() {
   const { isLoaded } = useUser();
   const { id } = useParams();
   const [isSetup, setIsSetup] = useState(false);
@@ -34,3 +34,9 @@ export default function Meeting() {
     </main>
   );
 }
+
+export async function generateStaticParams() {
+  return [{ meeting: [] }];
+}
+
+export default Meeting;

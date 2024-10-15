@@ -2,7 +2,7 @@ import { SignIn } from "@clerk/nextjs";
 import React from "react";
 
 export async function generateStaticParams() {
-  return [{ signUp: [] }];
+  return [{ signIn: [] }];
 }
 
 function SignInPage() {
