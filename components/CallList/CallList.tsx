@@ -65,7 +65,7 @@ function CallList({ type }: { type: "ended" | "upcoming" | "recordings" }) {
     };
 
     if (type === "recordings") fetchRecordings();
-  }, [type, callRecordings]);
+  }, [type, callRecordings, toast]);
 
   // Ensure that router-related code is not called before the component mounts
   if (!isMounted) {

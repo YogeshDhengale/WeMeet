@@ -6,20 +6,16 @@ import { useGetCallById } from "@/hooks/useGetCallById";
 import { useUser } from "@clerk/nextjs";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 import { Loader } from "lucide-react";
+import { useParams } from "next/navigation";
 import React, { useState } from "react";
 
-interface MeetingProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function Meeting({ params }: MeetingProps) {
+export default function Meeting() {
   const { isLoaded } = useUser();
+  const { id } = useParams();
   const [isSetup, setIsSetup] = useState(false);
 
   // Use your hook to get the call by ID
-  const { call, isCallLoading } = useGetCallById(params.id);
+  const { call, isCallLoading } = useGetCallById(id);
 
   // Handle loading states
   if (!isLoaded || isCallLoading) return <Loader />;
